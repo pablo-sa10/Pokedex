@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 
-class InitialScreen extends StatelessWidget {
+class InitialScreen extends StatefulWidget {
   const InitialScreen({super.key});
 
+  @override
+  State<InitialScreen> createState() => _InitialScreenState();
+}
+
+class _InitialScreenState extends State<InitialScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,10 +37,27 @@ class InitialScreen extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
             const SizedBox(
-              height: 20,
+              height: 80,
             ),
             Container(
-
+              width: 400,
+              height: 70,
+              decoration: BoxDecoration(
+                color: Colors.indigo,
+                borderRadius: BorderRadius.circular(56),
+              ),
+              child: TextButton(
+                onPressed: (){},
+                child: const Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text("Continuar", style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20
+                    ),)
+                  ],
+                ),
+              ),
             )
           ],
         ),
