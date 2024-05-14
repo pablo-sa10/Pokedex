@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class InitialScreen extends StatefulWidget {
-  const InitialScreen({super.key});
+class OnBording extends StatefulWidget {
+  const OnBording({super.key});
 
   @override
-  State<InitialScreen> createState() => _InitialScreenState();
+  State<OnBording> createState() => _OnBordingState();
 }
 
-class _InitialScreenState extends State<InitialScreen> {
+class _OnBordingState extends State<OnBording> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

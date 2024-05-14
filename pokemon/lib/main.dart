@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'Pages/cadastro/initial_screen.dart';
+import 'Pages/cadastro/on_bording.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       initialRoute: "home",
       routes: {
-        "home": (context)=> const InitialScreen(),
+        "home": (context)=> const OnBording(),
       },
       // onGenerateRoute: (settings){
       //   if(settings.name == )
