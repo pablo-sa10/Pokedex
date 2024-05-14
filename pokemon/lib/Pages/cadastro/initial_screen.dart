@@ -47,14 +47,16 @@ class _InitialScreenState extends State<InitialScreen> {
                 borderRadius: BorderRadius.circular(56),
               ),
               child: TextButton(
-                onPressed: (){},
+                onPressed: () {
+
+                },
                 child: const Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text("Continuar", style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20
-                    ),)
+                    Text(
+                      "Continuar",
+                      style: TextStyle(color: Colors.white, fontSize: 20),
+                    ),
                   ],
                 ),
               ),
