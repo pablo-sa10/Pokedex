@@ -14,21 +14,21 @@ void main() async {
 class MyApp extends StatelessWidget {
   final bool isFirstTime;
 
-  const MyApp({super.key, required this.isFirstTime});
+  const MyApp({super.key, this.isFirstTime = true});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: isFirstTime ? "/onboarding" : "/initial",
+      initialRoute: isFirstTime ? "/onboarding" : "/login",
       routes: {
-        "/onboarding": (context) => OnBoarding(
-              onComplete: () {
-                _updateFirstTime();
-                Navigator.pushReplacementNamed(context, '/initial');
-              },
-            ),
-        "/login": (context) => const InitialLogin(),
+        "/onboarding": (context) => const OnBoarding(),
+        "/login": (context) => InitialLogin(
+          onComplete: (){
+            _updateFirstTime();
+            Navigator.pushReplacementNamed(context, '/initial');
+          },
+        ),
         "/initial": (context) => const InitialScreen(),
       },
     );

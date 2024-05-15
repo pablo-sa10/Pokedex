@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class InitialLogin extends StatefulWidget {
-  const InitialLogin({super.key});
+  final VoidCallback onComplete;
+  const InitialLogin({super.key, required this.onComplete});
 
   @override
   State<InitialLogin> createState() => _InitialLoginState();
@@ -22,7 +23,10 @@ class _InitialLoginState extends State<InitialLogin> {
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushReplacementNamed(context, "/initial");
+              widget.onComplete();
+            },
             icon: const Icon(Icons.arrow_forward),
             color: Colors.black,
           ),
@@ -59,7 +63,10 @@ class _InitialLoginState extends State<InitialLogin> {
                   borderRadius: BorderRadius.circular(56),
                   color: Colors.indigo),
               child: TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushReplacementNamed(context, "/initial");
+                  widget.onComplete();
+                },
                 child: const Text(
                   "Criar conta",
                   style: TextStyle(color: Colors.white, fontSize: 20),
@@ -76,7 +83,10 @@ class _InitialLoginState extends State<InitialLogin> {
                   borderRadius: BorderRadius.circular(56),
                   color: Colors.white),
               child: TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushReplacementNamed(context, "/initial");
+                  widget.onComplete();
+                },
                 child: const Text(
                   "Já tenho uma conta",
                   style: TextStyle(color: Colors.indigo, fontSize: 20),
