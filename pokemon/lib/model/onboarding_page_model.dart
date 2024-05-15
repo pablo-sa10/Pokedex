@@ -17,7 +17,7 @@ final List<OnboardingPageModel> onboardingPages = [
     description:
         "Acesse uma vasta lista de Pokémon de todas as gerações já feitas pela Nintendo",
   ),OnboardingPageModel(
-    image: "assets/group29.png",
+    image: "assets/Group29.png",
     title: "Mantenha sua Pokédex atualizada",
     description:
         "Cadastre-se e mantenha seu perfil, pokémon favoritos, configurações e muito mais, salvos no aplicativo, mesmo sem conexão com a internet.",

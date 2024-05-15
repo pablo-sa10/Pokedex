@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:pokemon/model/onboarding_page_model.dart';
 
 class OnBoarding extends StatefulWidget {
-  const OnBoarding({super.key});
+  //final List<OnboardingPageModel> onboardingPages;
+  final VoidCallback onComplete;
+
+  const OnBoarding({super.key, required this.onComplete});
 
   @override
   State<OnBoarding> createState() => _OnBoardingState();

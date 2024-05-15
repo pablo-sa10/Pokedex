@@ -1,27 +1,41 @@
 import 'package:flutter/material.dart';
 import 'package:pokemon/Pages/login_screens/initial_login.dart';
+import 'Pages/initial_screen.dart';
 import 'Pages/onboarding/on_boarding.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  bool isFirstTime = prefs.getBool('isFirstTime') ?? true;
+  runApp(MyApp(isFirstTime: isFirstTime));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final bool isFirstTime;
 
-  // This widget is the root of your application.
+  const MyApp({super.key, required this.isFirstTime});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: "/onboarding",
+      initialRoute: isFirstTime ? "/onboarding" : "/initial",
       routes: {
-        "/onboarding": (context)=> const OnBoarding(),
-        "/login": (context)=> const InitialLogin()
+        "/onboarding": (context) => OnBoarding(
+              onComplete: () {
+                _updateFirstTime();
+                Navigator.pushReplacementNamed(context, '/initial');
+              },
+            ),
+        "/login": (context) => const InitialLogin(),
+        "/initial": (context) => const InitialScreen(),
       },
-      // onGenerateRoute: (settings){
-      //   if(settings.name == )
-      // },
     );
+  }
+
+  Future<void> _updateFirstTime() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setBool('isFirstTime', false);
   }
 }
