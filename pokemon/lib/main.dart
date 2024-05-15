@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'Pages/cadastro/on_bording.dart';
+import 'package:pokemon/Pages/login_screens/initial_login.dart';
+import 'Pages/onboarding/on_boarding.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,9 +14,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: "home",
+      initialRoute: "/onboarding",
       routes: {
-        "home": (context)=> const OnBording(),
+        "/onboarding": (context)=> const OnBoarding(),
+        "/login": (context)=> const InitialLogin()
       },
       // onGenerateRoute: (settings){
       //   if(settings.name == )
